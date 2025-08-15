@@ -1,6 +1,6 @@
 #grid-container {
     display: flex;
-    align-items: stretch;
+    flex-wrap: wrap;
     height: 800px;
     width: 800px;
     margin: 0 auto;
@@ -8,8 +8,7 @@
 }
 
 .grid-square {
-    border: 3px solid black;
-    /* width: 50px; */
-    flex: 1;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
