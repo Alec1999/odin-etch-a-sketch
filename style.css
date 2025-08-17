@@ -12,3 +12,8 @@
     box-sizing: border-box;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 3vh;
+}

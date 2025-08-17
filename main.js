@@ -15,6 +15,6 @@ for (i = 0; i < (16 * 16); i++) {
 const exsistingSquare = document.getElementsByClassName("grid-square");
 for (const square of exsistingSquare) {
     square.addEventListener("mouseenter", (e) => {
-        square.style.backgroundColor="black";
+        square.style.backgroundColor = "black";
     });
 };
