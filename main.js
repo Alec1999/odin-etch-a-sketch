@@ -11,13 +11,11 @@ function createGridSquare() {
     newSquare.style.width = ((totalGridPx / currentGridSize) + "px");
     gridContainer.appendChild(newSquare);
 
-    // Loop has to be here to work every time grid is created,
-    // Otherwise, would only work on initial grid.
-    for (const square of exsistingSquare) {
-        square.addEventListener("mouseenter", (e) => {
-            square.style.backgroundColor = "black";
-        });
-    };
+    gridContainer.addEventListener("mouseover", (e) => {
+        if (e.target.classList.contains("grid-square")) {
+            e.target.style.backgroundColor = "black";
+        };
+    });
 };
 
 function deleteOldGrid(){
