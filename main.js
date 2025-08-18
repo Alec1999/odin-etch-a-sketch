@@ -3,7 +3,6 @@ const newGridBtn = document.getElementById("buttons");
 const exsistingSquare = document.getElementsByClassName("grid-square");
 const totalGridPx = 800;
 let currentGridSize = 16;
-let oldGridSize = 16;
 
 function createGridSquare() {
     const newSquare = document.createElement("div");
@@ -19,35 +18,27 @@ function createGridSquare() {
             square.style.backgroundColor = "black";
         });
     };
-
-    oldGridSize = currentGridSize;
-}
+};
 
 function deleteOldGrid(){
-
     squaresArr = Array.from(exsistingSquare);
     while (squaresArr.length > 0) {
         squaresArr[0].remove();
         squaresArr.splice(0, 1);
-    }
-
-    // for(const square of exsistingSquare) {
-    //     square.remove();
-    // }
-}
+    };
+};
 
 function decideGridSize (currentGridSize) {
     for (i = 0; i < (currentGridSize * currentGridSize); i++) { 
         createGridSquare();
-    }
-}
+    };
+};
 
 newGridBtn.addEventListener("click", (e) => {
     currentGridSize = prompt("Enter grid size");
     deleteOldGrid();
-    // decideGridSize(currentGridSize);
+    decideGridSize(currentGridSize);
 });
 
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
-
