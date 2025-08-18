@@ -14,6 +14,7 @@ function createGridSquare() {
 
 function deleteOldGrid(){
     squaresArr = Array.from(exsistingSquare);
+
     while (squaresArr.length > 0) {
         squaresArr[0].remove();
         squaresArr.splice(0, 1);
@@ -33,7 +34,10 @@ gridContainer.addEventListener("mouseover", (e) => {
 });
 
 newGridBtn.addEventListener("click", (e) => {
-    currentGridSize = prompt("Enter grid size");
+    currentGridSize = prompt("Enter grid size (Max. 100)");
+    while (currentGridSize > 100) {
+        currentGridSize = prompt("Grid size cannot exceed 100. Enter new grid size");
+    };
     deleteOldGrid();
     decideGridSize(currentGridSize);
 });
