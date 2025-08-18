@@ -10,12 +10,6 @@ function createGridSquare() {
     newSquare.style.height = ((totalGridPx / currentGridSize) + "px");
     newSquare.style.width = ((totalGridPx / currentGridSize) + "px");
     gridContainer.appendChild(newSquare);
-
-    gridContainer.addEventListener("mouseover", (e) => {
-        if (e.target.classList.contains("grid-square")) {
-            e.target.style.backgroundColor = "black";
-        };
-    });
 };
 
 function deleteOldGrid(){
@@ -31,6 +25,12 @@ function decideGridSize (currentGridSize) {
         createGridSquare();
     };
 };
+
+gridContainer.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("grid-square")) {
+        e.target.classList.add("hovered");
+    };
+});
 
 newGridBtn.addEventListener("click", (e) => {
     currentGridSize = prompt("Enter grid size");

@@ -7,13 +7,17 @@
     border: 10px solid pink;
 }
 
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin: 3vh;
+}
+
 .grid-square {
     border: 1px solid black;
     box-sizing: border-box;
 }
 
-#buttons {
-    display: flex;
-    justify-content: center;
-    margin: 3vh;
+.hovered {
+    background-color: black;
 }
