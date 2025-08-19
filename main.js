@@ -43,6 +43,10 @@ newGridBtn.addEventListener("click", (e) => {
     while (currentGridSize > 100) {
         currentGridSize = prompt("Grid size cannot exceed 100. Enter new grid size");
     };
+    // If user cancels prompt.
+    if (currentGridSize == null) {
+        currentGridSize = 16;
+    }
     deleteOldGrid();
     decideGridSize(currentGridSize);
 });
