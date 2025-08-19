@@ -1,8 +1,10 @@
 const gridContainer = document.getElementById("grid-container");
-const newGridBtn = document.getElementById("buttons");
+const newGridBtn = document.getElementById("new-grid-btn");
+const rgbBtn = document.getElementById("rgb-btn");
 const exsistingSquare = document.getElementsByClassName("grid-square");
 const totalGridPx = 800;
 let currentGridSize = 16;
+let rgbMode = 0;
 
 function createGridSquare() {
     const newSquare = document.createElement("div");
@@ -29,6 +31,9 @@ function decideGridSize (currentGridSize) {
 
 gridContainer.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("grid-square")) {
+        if (rgbMode == 1) {
+            e.target.classList.add("rgb-hovered")
+        }
         e.target.classList.add("hovered");
     };
 });
@@ -41,6 +46,15 @@ newGridBtn.addEventListener("click", (e) => {
     deleteOldGrid();
     decideGridSize(currentGridSize);
 });
+
+rgbBtn.addEventListener("click", (e) => {
+    if (rgbMode == 0) {
+        rgbMode = 1;
+    }
+    else {
+        rgb = 0;
+    }
+})
 
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
