@@ -34,7 +34,10 @@ gridContainer.addEventListener("mouseover", (e) => {
         if (rgbMode == 1) {
             e.target.classList.add("rgb-hovered")
         }
-        e.target.classList.add("hovered");
+        else {
+            e.target.classList.remove("rgb-hovered")
+            e.target.classList.add("hovered");
+        };
     };
 });
 
@@ -56,9 +59,9 @@ rgbBtn.addEventListener("click", (e) => {
         rgbMode = 1;
     }
     else {
-        rgb = 0;
-    }
-})
+        rgbMode = 0;
+    };
+});
 
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
