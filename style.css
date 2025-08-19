@@ -11,7 +11,12 @@
     display: flex;
     justify-content: center;
     margin: 3vh;
+    gap: 0 3vh;
 }
+
+/* button {
+    margin: 0 15vh;
+} */
 
 .grid-square {
     border: 1px solid black;
@@ -21,3 +26,4 @@
 .hovered {
     background-color: black;
 }
+
