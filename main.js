@@ -78,13 +78,12 @@ rgbBtn.addEventListener("click", (e) => {
         rgbMode = 1;
         eraseMode = 0;
         rgbBtn.textContent = "RGB ON";
-        eraseBtn.textContent = "Eraser OFF";
     }
     else {
         rgbMode = 0;
         rgbBtn.textContent = "RGB OFF";
-        eraseBtn.textContent = "Eraser OFF";
     };
+    eraseBtn.textContent = "Eraser OFF";
 });
 
 eraseBtn.addEventListener("click", (e) => {
@@ -92,13 +91,12 @@ eraseBtn.addEventListener("click", (e) => {
         eraseMode = 1;
         rgbMode = 0;
         eraseBtn.textContent = "Eraser ON";
-        rgbBtn.textContent = "RGB OFF";
     }
     else {
         eraseMode = 0;
         eraseBtn.textContent = "Eraser OFF";
-        rgbBtn.textContent = "RGB OFF";
     };
+    rgbBtn.textContent = "RGB OFF";
 });
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
