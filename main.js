@@ -71,9 +71,11 @@ newGridBtn.addEventListener("click", (e) => {
 rgbBtn.addEventListener("click", (e) => {
     if (rgbMode == 0) {
         rgbMode = 1;
+        rgbBtn.textContent = "RGB ON";
     }
     else {
         rgbMode = 0;
+        rgbBtn.textContent = "RGB OFF";
     };
 });
 
