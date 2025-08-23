@@ -1,10 +1,12 @@
 const gridContainer = document.getElementById("grid-container");
 const newGridBtn = document.getElementById("new-grid-btn");
 const rgbBtn = document.getElementById("rgb-btn");
+const eraseBtn = document.getElementById("erase-btn");
 const exsistingSquare = document.getElementsByClassName("grid-square");
 const totalGridPx = 800;
 let currentGridSize = 16;
 let rgbMode = 0;
+let eraseMode = 0;
 
 function createGridSquare() {
     const newSquare = document.createElement("div");
@@ -45,12 +47,15 @@ function chooseRandomColor() {
 
 gridContainer.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("grid-square")) {
-        if (rgbMode == 0) {
+        if ((rgbMode == 0) && (eraseMode == 0)) {
             e.target.style.backgroundColor = ("#000000");
         }
-        else {
+        else if (rgbMode == 1) {
             let randomColorHex = chooseRandomColor().toString();
             e.target.style.backgroundColor = ("#" + randomColorHex);
+        }
+        else {
+            e.target.style.backgroundColor = ("#" + "FFFFFF");
         };
     };
 });
@@ -71,13 +76,29 @@ newGridBtn.addEventListener("click", (e) => {
 rgbBtn.addEventListener("click", (e) => {
     if (rgbMode == 0) {
         rgbMode = 1;
+        eraseMode = 0;
         rgbBtn.textContent = "RGB ON";
+        eraseBtn.textContent = "Eraser OFF";
     }
     else {
         rgbMode = 0;
         rgbBtn.textContent = "RGB OFF";
+        eraseBtn.textContent = "Eraser OFF";
     };
 });
 
+eraseBtn.addEventListener("click", (e) => {
+    if (eraseMode == 0) {
+        eraseMode = 1;
+        rgbMode = 0;
+        eraseBtn.textContent = "Eraser ON";
+        rgbBtn.textContent = "RGB OFF";
+    }
+    else {
+        eraseMode = 0;
+        eraseBtn.textContent = "Eraser OFF";
+        rgbBtn.textContent = "RGB OFF";
+    };
+});
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
