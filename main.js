@@ -5,7 +5,6 @@ const exsistingSquare = document.getElementsByClassName("grid-square");
 const totalGridPx = 800;
 let currentGridSize = 16;
 let rgbMode = 0;
-let colorHexArr = [];
 
 function createGridSquare() {
     const newSquare = document.createElement("div");
@@ -31,26 +30,27 @@ function decideGridSize (currentGridSize) {
 };
 
 function chooseRandomColor() {
-    let randomColorHex ="";
+    let randomColorHex = "";
+    let colorHexArr = [];
 
-    for(i = 1; i < 7; i++){
+    for (i = 1; i < 7; i++){
         const hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
         colorHexArr.push(hexValues[Math.floor((Math.random() * 16))]);
         randomColorHex = colorHexArr.join("");
     };
-    console.log(randomColorHex);
-};
 
-chooseRandomColor();
+    console.log("generated hex: ", randomColorHex)
+    return randomColorHex;
+};
 
 gridContainer.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("grid-square")) {
-        if (rgbMode == 1) {
-            e.target.classList.add("rgb-hovered")
+        if (rgbMode == 0) {
+            e.target.style.backgroundColor = ("#000000");
         }
         else {
-            e.target.classList.remove("rgb-hovered")
-            e.target.classList.add("hovered");
+            let randomColorHex = chooseRandomColor().toString();
+            e.target.style.backgroundColor = ("#" + randomColorHex);
         };
     };
 });
