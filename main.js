@@ -98,5 +98,6 @@ eraseBtn.addEventListener("click", (e) => {
     };
     rgbBtn.textContent = "RGB OFF";
 });
+
 // Create initial grid of 16 x 16
 decideGridSize(currentGridSize);
